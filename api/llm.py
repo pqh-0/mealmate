@@ -102,7 +102,7 @@ def _gemini_stream(instructions: str, prompt: str):
         model = main_model if attempt == 0 else backup_model
         config = types.GenerateContentConfig(
             system_instruction=instructions,
-            thinking_config=types.ThinkingConfig(thinking_level="minimal") if thinking_off else None,
+            thinking_config=types.ThinkingConfig(thinking_budget=0) if thinking_off else None,
         )
         got_any = False
         try:
